@@ -1,0 +1,39 @@
+@import '../../styles/global.scss';
+
+.header {
+    height: $base * 15;
+    padding-top: $base * 10;
+    padding-bottom: $base * 12.5;
+    display: flex;
+    justify-content: center;
+    
+    .container {
+        width: 100%;
+        padding: $base * 2 $base;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__values {
+        display: flex;
+        align-items: center;
+        gap: $base;
+        font-weight: 500;
+        font-size: $base * 5;
+        color: $color-black-100;
+
+        p {
+            &::after {
+                content: '/';
+                padding: 3px;
+            }
+
+            &:last-child {
+                &::after {
+                    content: '';
+                }
+            }
+        }
+    }
+}

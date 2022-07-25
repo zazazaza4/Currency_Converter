@@ -1,0 +1,29 @@
+@import '../../styles/variables.scss';
+@import '../../styles/global.scss';
+
+.valuta {
+
+    &__input {
+        max-width: 360px;
+        height: 70px;
+
+        input {
+            padding: $base * 4.5;
+            width: 90%;
+            font-size: $base * 8;
+            outline: none;
+            border: 1px solid $color-gray-100;
+            border-radius: $base;
+            transition: all 0.3s ease-in-out;
+    
+            &:focus {
+                border: 1px solid $color-blue-100;
+                caret-color: $color-blue-100;
+            }
+        }
+    }
+
+    &__available {
+        margin: 20px 0;
+    }
+}

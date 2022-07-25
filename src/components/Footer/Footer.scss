@@ -1,0 +1,27 @@
+@import '../../styles/variables.scss';
+@import '../../styles/global.scss';
+
+.footer {
+    width: 100%;
+    padding-top: 140px;
+    padding-bottom: 30px;
+    color: $color-gray-100;
+    font-size: $base * 3.5;
+
+    a {
+        color: $color-blue-100;
+        font-weight: 500;
+    }
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 40px;
+    }
+
+    &__copyright {
+        text-align: center;
+        line-height: 1.3em;
+    }
+}
