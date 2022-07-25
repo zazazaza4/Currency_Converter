@@ -1,0 +1,25 @@
+@import '../../styles/variables.scss';
+@import '../../styles/global.scss';
+
+.alternatives {
+    max-width: 600px;
+    text-align-last: left;
+    color: $color-black-100;
+    line-height: 1.6em;
+    margin: 0 auto;
+
+    &__title {
+        font-weight: 500;
+        font-size: $base * 7;
+        padding-bottom: $base * 2;
+    }
+
+    &__desc {
+        font-weight: 400;
+        
+        p {
+            font-size: $base * 3.5;
+            padding-bottom: $base * 1.5;
+        }
+    }
+}

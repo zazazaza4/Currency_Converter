@@ -3,15 +3,10 @@
 
 .footer {
     width: 100%;
-    padding-top: 140px;
+    padding-top: 80px;
     padding-bottom: 30px;
     color: $color-gray-100;
     font-size: $base * 3.5;
-
-    a {
-        color: $color-blue-100;
-        font-weight: 500;
-    }
 
     &__container {
         display: flex;

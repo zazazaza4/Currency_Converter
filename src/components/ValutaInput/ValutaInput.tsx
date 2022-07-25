@@ -1,8 +1,12 @@
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import './ValutaInput.scss';
 
-const ValutaInput = () => {
-  const [valutasAvailable, setValutasAvailable] = useState([]);
+type valute = {
+  name: string;
+}
+
+const ValutaInput:FC = () => {
+  const [valutasAvailable, setValutasAvailable] = useState<valute[]>([]);
   
   useEffect( () => {
 

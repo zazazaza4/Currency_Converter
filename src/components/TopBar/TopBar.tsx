@@ -1,30 +1,39 @@
-import './TopBar.scss';
 import logo from '../../assets/logo/valutaLogo.svg';
-import { useEffect, useMemo, useState } from 'react';
+import { FC, useEffect, useMemo, useState } from 'react';
 import { useServiceConverter } from '../../services/services';
 import { useNavigate } from 'react-router-dom';
 
+import './TopBar.scss';
 
-const TopBar = () => {
-  const [valuta, setValuta] = useState([]);
+type valutaData = {
+  r030: number;
+  txt: string;
+  rate: number;
+  cc: string;
+  exchangedate: string;
+};
+
+const TopBar:FC = () => {
+  const [valuta, setValuta] = useState<valutaData[]>([]);
   const {getData} = useServiceConverter();
   let navigate = useNavigate();
 
-  const valutaLoaded = (arrValutas) => {
-    setValuta(valuta => [...arrValutas]);
+  const valutaLoaded = (arrValutas: valutaData[]) => {
+    setValuta((valuta) => arrValutas);
   }
 
   useEffect( () => {
     const url = 'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json';
     getData(url, 'USD', 'EUR')
       .then(valutaLoaded)
-      .catch( e => console.error(e))
+      .catch( e => console.error(e));
+    // eslint-disable-next-line
   }, []);
 
-  const renderItems = (elements) => {
+  const renderItems = (elements: valutaData[]) => {
     return elements.map( element => {
       const { rate, cc } = element;
-      return <p>{rate.toFixed(2)} {cc}</p>
+      return <p key={cc}>{rate.toFixed(2)} {cc}</p>
     })
   }
 

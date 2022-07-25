@@ -1,9 +1,11 @@
+import { FC } from "react";
 import ValutaInput from "../ValutaInput/ValutaInput";
 import SwitchIcon from '../../assets/img/switch.svg';
 
 import './ValutaGroup.scss'; 
 
-const ValutaGroup = () => {
+
+const ValutaGroup:FC = () => {
   return (
     <section className="valuteGroup">
       <div className="valuteGroup__item">

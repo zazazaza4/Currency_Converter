@@ -1,3 +1,4 @@
+import { FC } from "react"
 import { Navigate, Route, Routes } from "react-router-dom"
 import About from "../../pages/About/About"
 import Alternatives from "../../pages/Alternatives/Alternatives"
@@ -5,7 +6,7 @@ import Cookies from "../../pages/Cookies/Cookies"
 import Home from "../../pages/Home/Home"
 import Privacy from "../../pages/Privacy/Privacy"
 
-const App = () => {
+const App: FC = () => {
   return (
       <Routes>
         <Route path="/" element={<Home />} />

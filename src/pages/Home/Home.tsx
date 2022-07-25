@@ -1,10 +1,11 @@
 import TopBar from "../../components/TopBar/TopBar";
 import Footer from "../../components/Footer/Footer";
 import ValutaGroup from "../../components/ValutaGroup/ValutaGroup";
+import { FC } from "react";
 
 import './Home.scss';
 
-const Home = () => {
+const Home: FC = () => {
   return (
     <div className="wrapper">
       <TopBar/>

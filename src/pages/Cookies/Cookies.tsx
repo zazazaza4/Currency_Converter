@@ -1,10 +1,10 @@
 import TopBar from "../../components/TopBar/TopBar";
 import Footer from "../../components/Footer/Footer";
-
+import { FC } from "react";
 
 // import './Cookies.scss';
 
-const Cookies = () => {
+const Cookies:FC = () => {
   return (
     <div className="wrapper">
       <TopBar/>

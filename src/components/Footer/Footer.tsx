@@ -1,9 +1,10 @@
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo/valutaLogo.svg';
 
 import './Footer.scss';
 
-const Footer = () => {
+const Footer:FC = () => {
   return (
     <footer className='footer container'>
         <div className="footer__container">
