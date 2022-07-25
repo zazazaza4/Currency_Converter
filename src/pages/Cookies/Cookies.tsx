@@ -11,7 +11,7 @@ const Cookies:FC = () => {
         
       <main className="main container">
 
-          <h1 className="main__title">Privacy</h1>
+          <h1 className="main__title">Cookies</h1>
 
           <h2 className="main__desc">
             

@@ -1,0 +1,16 @@
+@import '../../styles/variables.scss';
+
+.privacy {
+    &__desc {
+        font-weight: 400;
+
+        h1 {
+            font-size: $base * 5;
+        }
+
+        p {
+            font-size: $base * 4;
+            padding-bottom: $base * 1.5;
+        }
+    }
+}

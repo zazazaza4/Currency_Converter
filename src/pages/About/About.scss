@@ -1,0 +1,17 @@
+@import '../../styles/variables.scss';
+@import '../../styles/global.scss';
+
+.about {
+    &__desc {
+        font-size: $base * 4;
+        font-weight: normal;
+    }
+
+    &__list {
+        margin-top: $base * 6;
+        li {
+            margin-bottom: $base * 3;
+            list-style: square;
+        }
+    }
+}
