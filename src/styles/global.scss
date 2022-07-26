@@ -2,97 +2,96 @@
 
 // ============ Main container =========
 .container {
-    max-width: $container-width;
-    margin: 0 auto;
+  max-width: $container-width;
+  margin: 0 auto;
 }
 // ============ / Main container =========
 
 // ============ Shadow =========
 .shadow-hover {
-    &:hover {
-        box-shadow: $color-black-200 0px $base $base * 4;
-    }
+  &:hover {
+    box-shadow: $color-black-200 0px $base $base * 4;
+  }
 }
 // ============ / Shadow =========
 
 // ============ Select =========
 .select {
-    width: 100%;
-    font-size: $base * 3.5;
-    height: 70px;
-    border: 1px solid $color-gray-100;
-    transition: all 0.3s ease-in-out;
-    border-radius: $base;
+  width: 100%;
+  font-size: $base * 3.5;
+  height: 70px;
+  border: 1px solid $color-gray-100;
+  transition: all 0.3s ease-in-out;
+  border-radius: $base;
 
-    user-select: none;
-    cursor: pointer;
+  user-select: none;
+  cursor: pointer;
 
-    &__placeholder {
-        padding: 1.3rem;
-        display: inline-block;
-    }
+  &__placeholder {
+    padding: 1.3rem;
+    display: inline-block;
+  }
 
-    &__options {
-        visibility: hidden;
-    }
+  &__options {
+    visibility: hidden;
+  }
 
-    &_active {
-        visibility: visible;
-    }
+  &_active {
+    visibility: visible;
+  }
 }
 // ============ / Select =========
 
 // ============ Logo =========
 .logo {
-    width: $base * 45;
-    height: $base * 8;
-    cursor: pointer;
+  width: $base * 45;
+  height: $base * 8;
+  cursor: pointer;
 
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 // ============ / Logo =========
 
 // ============ Navigation =========
 .nav {
-    a {
-        text-decoration: none;
-        color: $color-gray-100;
-        transition: all .2s ease;
+  a {
+    text-decoration: none;
+    color: $color-gray-100;
+    transition: all 0.2s ease;
 
-        &:hover {
-            color: $color-blue-100;
-        }
+    &:hover {
+      color: $color-blue-100;
     }
+  }
 
-    &__items {
-        display: flex;
-        flex-direction: row;
-        gap: $base * 3;
-    }
-
-    &__link {
-
-    }
+  &__items {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: $base * 3;
+  }
 }
 // ============ / Navigation =========
 
 // ============ Wrapper =========
 .wrapper {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-    main {
-        flex: 1 0 auto;
-    }
+  main {
+    flex: 1 0 auto;
+  }
 
-    footer {
-        flex: 0 0 auto;
-    }
+  footer {
+    flex: 0 0 auto;
+  }
 }
 // ============ / Wrapper =========

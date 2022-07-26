@@ -1,39 +1,63 @@
 @import '../../styles/global.scss';
 
 .header {
-    height: $base * 15;
-    padding-top: $base * 10;
-    padding-bottom: $base * 12.5;
+  height: $base * 15;
+  padding-top: $base * 10;
+  padding-bottom: $base * 12.5;
+  display: flex;
+  justify-content: center;
+
+  .container {
+    width: 100%;
+    padding: $base * 2 $base;
     display: flex;
-    justify-content: center;
-    
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__values {
+    border: 1px solid $color-blue-100;
+    padding: $base * 2.5;
+    box-shadow: $color-blue-200 0px $base $base * 3;
+    display: flex;
+    align-items: center;
+    gap: $base;
+    font-weight: 500;
+    font-size: $base * 5;
+    color: $color-blue-100;
+
+    p {
+      &::after {
+        content: '/';
+        padding: 3px;
+      }
+
+      &:last-child {
+        &::after {
+          content: '';
+        }
+      }
+    }
+  }
+
+  //========Media queries=========
+  @media (max-width: 1000px) {
+    padding-left: $base * 8;
+    padding-right: $base * 8;
+  }
+  @media (max-width: 500px) {
+    padding-top: $base * 4;
+    padding-left: $base * 3;
+    padding-right: $base * 3;
+
     .container {
-        width: 100%;
-        padding: $base * 2 $base;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      gap: $base * 5;
     }
 
     &__values {
-        display: flex;
-        align-items: center;
-        gap: $base;
-        font-weight: 500;
-        font-size: $base * 5;
-        color: $color-black-100;
-
-        p {
-            &::after {
-                content: '/';
-                padding: 3px;
-            }
-
-            &:last-child {
-                &::after {
-                    content: '';
-                }
-            }
-        }
+      height: $base * 7;
     }
+  }
 }

@@ -2,21 +2,37 @@
 @import '../../styles/global.scss';
 
 .footer {
-    width: 100%;
-    padding-top: 80px;
-    padding-bottom: 30px;
-    color: $color-gray-100;
-    font-size: $base * 3.5;
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 30px;
+  color: $color-gray-100;
+  font-size: $base * 3.5;
 
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 40px;
+  }
+
+  &__copyright {
+    text-align: center;
+    line-height: 1.3em;
+  }
+
+  //========Media queries=========
+  @media (max-width: 1024px) {
+    padding-top: 30px;
     &__container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-bottom: 40px;
+      padding-left: $base * 8;
+      padding-right: $base * 8;
     }
-
-    &__copyright {
-        text-align: center;
-        line-height: 1.3em;
+  }
+  @media (max-width: 540px) {
+    &__container {
+      flex-direction: column;
+      gap: $base * 5;
+      padding-bottom: 20px;
     }
+  }
 }
