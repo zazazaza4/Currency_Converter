@@ -2,16 +2,20 @@
 @import '../../styles/global.scss';
 
 .about {
-    &__desc {
-        font-size: $base * 4;
-        font-weight: normal;
-    }
+  padding-left: $base * 5;
+  padding-right: $base * 5;
+  color: $color-black-100;
 
-    &__list {
-        margin-top: $base * 6;
-        li {
-            margin-bottom: $base * 3;
-            list-style: square;
-        }
+  &__desc {
+    font-size: $base * 4;
+    font-weight: normal;
+  }
+
+  &__list {
+    margin-top: $base * 6;
+    li {
+      margin-bottom: $base * 3;
+      list-style: square;
     }
+  }
 }

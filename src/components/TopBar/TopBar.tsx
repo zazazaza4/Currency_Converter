@@ -5,27 +5,32 @@ import { useNavigate } from 'react-router-dom';
 
 import './TopBar.scss';
 
-type valutaData = {
-  r030: number;
-  txt: string;
-  rate: number;
+interface valutaData {
   cc: string;
-  exchangedate: string;
-};
+  rate: number;
+}
 
 const TopBar: FC = () => {
   const [valuta, setValuta] = useState<valutaData[]>([]);
-  const { getData } = useServiceConverter();
+  const { onFormCurrencies } = useServiceConverter();
   let navigate = useNavigate();
 
-  const valutaLoaded = (arrValutas: valutaData[]) => {
-    setValuta(valuta => arrValutas);
+  const valutaLoaded = (valutas: any) => {
+    setValuta([
+      {
+        cc: 'USD',
+        rate: valutas['USD'],
+      },
+      {
+        cc: 'EUR',
+        rate: valutas['EUR'],
+      },
+    ]);
   };
 
   useEffect(() => {
-    const url =
-      'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json';
-    getData(url, 'USD', 'EUR')
+    const url = 'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json';
+    onFormCurrencies(url)
       .then(valutaLoaded)
       .catch(e => console.error(e));
     // eslint-disable-next-line
@@ -36,10 +41,10 @@ const TopBar: FC = () => {
       return ['Loading...', 'Loading...'].map(item => <p>{item}</p>);
     }
 
-    return elements.map(element => {
+    return elements.map((element, index) => {
       const { rate, cc } = element;
       return (
-        <p key={cc}>
+        <p key={cc + index}>
           {rate.toFixed(2)} {cc}
         </p>
       );

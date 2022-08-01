@@ -2,28 +2,76 @@
 @import '../../styles/global.scss';
 
 .valuta {
+  &__input {
+    max-width: 360px;
+    height: 70px;
 
-    &__input {
-        max-width: 360px;
-        height: 70px;
+    input {
+      padding: $base * 4.5;
+      width: 90%;
+      font-size: $base * 8;
+      outline: none;
+      border: 1px solid $color-gray-100;
+      border-radius: $base;
+      transition: all 0.3s ease-in-out;
 
-        input {
-            padding: $base * 4.5;
-            width: 90%;
-            font-size: $base * 8;
-            outline: none;
-            border: 1px solid $color-gray-100;
-            border-radius: $base;
-            transition: all 0.3s ease-in-out;
-    
-            &:focus {
-                border: 1px solid $color-blue-100;
-                caret-color: $color-blue-100;
-            }
+      &:focus {
+        border: 1px solid $color-blue-100;
+        caret-color: $color-blue-100;
+      }
+    }
+  }
+
+  // ============ Select =========
+  .select {
+    position: relative;
+    width: 100%;
+    font-size: $base * 3.5;
+    height: 70px;
+    border: 1px solid $color-gray-100;
+    transition: all 0.3s ease-in-out;
+    border-radius: $base;
+
+    user-select: none;
+    cursor: pointer;
+
+    &__placeholder {
+      padding: 1.3rem;
+      display: inline-block;
+    }
+
+    &__options {
+      position: absolute;
+      top: 99%;
+      left: -1px;
+      border: 1px solid $color-gray-100;
+      border-top: none;
+      background: $color-white;
+      width: 100%;
+      height: $base * 70;
+      overflow-y: scroll;
+
+      ul {
+        padding: 0;
+
+        li {
+          padding: $base * 2.5;
+          margin: $base $base * 6;
+          border-radius: $base * 2;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background: $color-blue-100;
+          }
         }
-    }
+      }
 
-    &__available {
-        margin: 20px 0;
+      visibility: hidden;
     }
+  }
+  // ============ / Select =========
+
+  &__available {
+    margin: 20px 0;
+  }
 }

@@ -21,7 +21,6 @@ const Privacy: FC = () => {
   useEffect(() => {
     if (location.hash === '#cookies' && cookies && cookies.current) {
       const { top } = getOffset(cookies.current);
-      console.log(top);
       window.scrollTo(top, top);
     }
   }, [location]);
