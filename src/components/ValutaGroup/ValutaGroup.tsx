@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, SetStateAction, useEffect, useState } from 'react';
 import ValutaInput from '../ValutaInput/ValutaInput';
 import SwitchIcon from '../../assets/img/switch.svg';
 
@@ -18,16 +18,20 @@ const ValutaGroup: FC = () => {
 
   const { onFormCurrencies } = useServiceConverter();
 
+  const formatInput = (data: number) => +data.toFixed(2);
+
   const handleAmount1Change = (amount: number) => {
     if (rates) {
-      setAmount2(+(amount * rates[currency2]) / rates[currency1]);
+      const value = formatInput((amount * rates[currency2]) / rates[currency1]);
+      setAmount2(value);
       setAmount1(amount);
     }
   };
 
   const handleAmount2Change = (amount: number) => {
     if (rates) {
-      setAmount1(+(amount * rates[currency1]) / rates[currency2]);
+      const value = formatInput((amount * rates[currency1]) / rates[currency2]);
+      setAmount1(value);
       setAmount2(amount);
     }
   };
