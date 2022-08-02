@@ -29,8 +29,7 @@ const TopBar: FC = () => {
   };
 
   useEffect(() => {
-    const url = 'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json';
-    onFormCurrencies(url)
+    onFormCurrencies()
       .then(valutaLoaded)
       .catch(e => console.error(e));
     // eslint-disable-next-line

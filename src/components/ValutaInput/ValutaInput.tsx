@@ -1,11 +1,18 @@
-import { ChangeEvent, useRef } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { FC } from 'react';
+import Select, { ActionMeta, SingleValue } from 'react-select';
+
 import './ValutaInput.scss';
+
+type currenciesType = {
+  value: string;
+  label: string;
+};
 
 interface ValutaInputProps {
   amount: number;
   currency: string;
-  currencies: string[];
+  currencies: currenciesType[] | undefined;
   onAmountChange: (amount: number) => void;
   onCurrencyChange: (amount: string) => void;
 }
@@ -17,13 +24,7 @@ const ValutaInput: FC<ValutaInputProps> = ({
   onAmountChange,
   onCurrencyChange,
 }) => {
-  const optionsRef = useRef<HTMLHeadingElement>(null);
-
-  const showOptions = () => {
-    if (optionsRef.current) {
-      optionsRef.current.classList.add('_active');
-    }
-  };
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     const target = e.currentTarget;
@@ -31,40 +32,44 @@ const ValutaInput: FC<ValutaInputProps> = ({
     onAmountChange(value);
   };
 
-  const onChangeSelect = (e: ChangeEvent<HTMLSelectElement>) => {
-    const target = e.target;
-    const value = target.value;
-    onCurrencyChange(value);
+  const onChangeSelect = (
+    newValue: SingleValue<currenciesType>,
+    actionMeta: ActionMeta<currenciesType>
+  ) => {
+    if (newValue) onCurrencyChange(newValue.value);
   };
 
+  const onMenuOpen = () => setIsMenuOpen(true);
+  const onMenuClose = () => setIsMenuOpen(false);
+
+  const valueCurrency = { value: currency, label: currency };
   return (
     <div className="valuta">
       <div className="valuta__available shadow-hover">
-        <div className="select" onClick={showOptions}>
-          <span className="select__placeholder">{currency}</span>
-          <div ref={optionsRef} className="">
-            <div className="select__input">
-              <input type="text" className="" />
-            </div>
-            <select onChange={onChangeSelect} value={currency}>
-              {currencies.length === 0
-                ? null
-                : currencies.map((item: any) => (
-                    <option onClick={() => console.log('')} key={item}>
-                      {item}
-                    </option>
-                  ))}
-            </select>
-          </div>
+        <div className="select">
+          <Select
+            value={valueCurrency}
+            aria-labelledby="aria-label"
+            inputId="aria-example-input"
+            name="aria-live-color"
+            options={currencies}
+            onChange={onChangeSelect}
+            onMenuOpen={onMenuOpen}
+            onMenuClose={onMenuClose}
+            theme={theme => ({
+              ...theme,
+              borderRadius: 4,
+              colors: {
+                ...theme.colors,
+                primary25: 'rgba(0, 171, 169, 0.6)',
+                primary: 'rgb(0, 171, 169)',
+              },
+            })}
+          />
         </div>
       </div>
       <div className="valuta__input">
-        <input
-          type="text"
-          className="shadow-hover"
-          value={amount}
-          onChange={onChangeInput}
-        />
+        <input type="text" className="shadow-hover" value={amount} onChange={onChangeInput} />
       </div>
     </div>
   );

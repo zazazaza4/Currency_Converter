@@ -1,4 +1,4 @@
-import { FC, SetStateAction, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import ValutaInput from '../ValutaInput/ValutaInput';
 import SwitchIcon from '../../assets/img/switch.svg';
 
@@ -20,6 +20,25 @@ const ValutaGroup: FC = () => {
 
   const formatInput = (data: number) => +data.toFixed(2);
 
+  const onChangeCurrencies = () => {
+    const firstCurrency = currency1;
+    setCurrency1(() => currency2);
+    handleCurerncy1Change(currency2);
+    setCurrency2(() => firstCurrency);
+    handleCurerncy2Change(firstCurrency);
+  };
+
+  const formatOptions = (arr: ratesType | undefined) => {
+    if (arr) {
+      return Object.keys(arr).map(item => {
+        return {
+          value: item,
+          label: item,
+        };
+      });
+    }
+  };
+
   const handleAmount1Change = (amount: number) => {
     if (rates) {
       const value = formatInput((amount * rates[currency2]) / rates[currency1]);
@@ -38,14 +57,16 @@ const ValutaGroup: FC = () => {
 
   const handleCurerncy1Change = (currency: string) => {
     if (rates) {
-      setAmount2(+(amount1 * rates[currency2]) / rates[currency]);
+      const value = formatInput((amount1 * rates[currency2]) / rates[currency]);
+      setAmount2(value);
       setCurrency1(currency);
     }
   };
 
   const handleCurerncy2Change = (currency: string) => {
     if (rates) {
-      setAmount1(+(amount2 * rates[currency1]) / rates[currency]);
+      const value = formatInput((amount2 * rates[currency1]) / rates[currency]);
+      setAmount1(value);
       setCurrency2(currency);
     }
   };
@@ -62,7 +83,7 @@ const ValutaGroup: FC = () => {
       });
   }, []);
 
-  const currencies = rates ? Object.keys(rates) : [];
+  const currencies = formatOptions(rates);
   return (
     <section className="valuteGroup">
       <div className="valuteGroup__item">
@@ -74,7 +95,7 @@ const ValutaGroup: FC = () => {
           onCurrencyChange={handleCurerncy1Change}
         />
       </div>
-      <button className="valuteGroup__btn">
+      <button onClick={onChangeCurrencies} className="valuteGroup__btn">
         <div className="valuteGroup__image">
           <img src={SwitchIcon} alt="Switch" />
         </div>

@@ -2,24 +2,28 @@
 @import '../../styles/global.scss';
 
 .main {
-    text-align: center;
+  text-align: center;
+  padding-left: $base * 4;
+  padding-right: $base * 4;
+  margin-top: 20px;
+  margin-bottom: 20px;
 
-    &__title {
-        color: $color-black-100;
-        font-size: $base * 8;
-        font-weight: 500;
-    }
+  &__title {
+    color: $color-black-100;
+    font-size: $base * 8;
+    font-weight: 500;
+  }
 
-    &__desc {
-        margin: 0 auto;
-        color: $color-gray-100;
-        max-width: 400px;
-        font-size: $base * 3.5;
-        font-weight: 400;
-        line-height: 1.5em;
-    }
+  &__desc {
+    margin: 0 auto;
+    color: $color-gray-100;
+    max-width: 400px;
+    font-size: $base * 3.5;
+    font-weight: 400;
+    line-height: 1.5em;
+  }
 
-    .inputs {
-        margin-top: 40px; 
-    }
+  .inputs {
+    margin-top: 40px;
+  }
 }
